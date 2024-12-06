@@ -27,6 +27,7 @@ button.active {
   cursor: pointer;
   border: 2px solid black;
   text-align: center;
+  color: black;
 }
 
 .center{

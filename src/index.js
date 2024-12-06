@@ -112,7 +112,7 @@ function App() {
             <td><button className = "bingobutton" id = "15" onClick={toggleColor}>Issue only happens on Tuesdays</button></td>
           </tr>
           <tr>
-            <td><button className = "bingobutton" id = "16" onClick={toggleColor}>Comments to explain the 'unexplainable'</button></td>
+            <td><button className = "bingobutton" id = "16" onClick={toggleColor}>It stopped working!</button></td>
             <td><button className = "bingobutton" id = "17" onClick={toggleColor}>It was fine when I tested it</button></td>
             <td><button className = "bingobutton" id = "18" onClick={toggleColor}>Code freeze</button></td>
             <td><button className = "bingobutton" id = "19" onClick={toggleColor}>It’s the JavaScript’s fault</button></td>
