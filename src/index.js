@@ -4,6 +4,61 @@ import "./index.css";
 
 const confetti = window.confetti;
 
+const initialTexts = [
+  "Code not compiling",
+  "I’ll fix it in the next release",
+  "I’m going to be here a while",
+  "I’ll just comment that out for now",
+  "It works, but...",
+  "It works on my machine",
+  "Spent hours on a bug that’s a typo",
+  "Let’s Google that",
+  "This will only take 5 minutes...",
+  "Restarting the server",
+  "This code worked last week!",
+  "Server down",
+  "The fix broke something else",
+  "Issue only happens on Tuesdays",
+  "It stopped working!",
+  "It was fine when I tested it",
+  "Code freeze",
+  "It’s the JavaScript’s fault",
+  "Restart computer",
+  "I didn’t touch that part of the code",
+  "It's not a bug, it's a 'feature'",
+  "I think I need more coffee",
+  "The fix is simple...",
+  "Forgot to push changes",
+];
+
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  while (currentIndex != 0) {
+
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+}
+
+function shuffleAndAssign() {
+  let shuffledTexts = [...initialTexts];
+  shuffle(shuffledTexts);
+
+  let textIndex = 0;
+  for (let i = 1; i <= 25; i++) {
+    if (i === 13) continue;
+
+    const button = document.getElementById(i);
+    if (button && textIndex < shuffledTexts.length) {
+      button.textContent = shuffledTexts[textIndex];
+      textIndex++;
+    }
+  }
+}
+
 const buttonGrid = Array.from({ length: 5 }, () => Array(5).fill(false));
 buttonGrid[2][2] = true;
 const printedMessages = new Set(); 
@@ -86,44 +141,47 @@ function bingoCompleted(message) {
 }
 
 function App() {
+  window.onload = () => {
+    shuffleAndAssign();
+  };
   return (
     <div>
       <table>
         <tbody>
           <tr>
-            <td><button className = "bingobutton" id = "1" onClick={toggleColor}>Code not compiling</button></td>
-            <td><button className = "bingobutton" id = "2" onClick={toggleColor}>I’ll fix it in the next release</button></td>
-            <td><button className = "bingobutton" id = "3" onClick={toggleColor}>I’m going to be here a while</button></td>
-            <td><button className = "bingobutton" id = "4" onClick={toggleColor}>I’ll just comment that out for now</button></td>
-            <td><button className = "bingobutton" id = "5" onClick={toggleColor}>It works, but...</button></td>
+            <td><button className="bingobutton" id="1" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="2" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="3" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="4" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="5" onClick={toggleColor}></button></td>
           </tr>
           <tr>
-            <td><button className = "bingobutton" id = "6" onClick={toggleColor}>It works on my machine</button></td>
-            <td><button className = "bingobutton" id = "7" onClick={toggleColor}>Spent hours on a bug that’s a typo</button></td>
-            <td><button className = "bingobutton" id = "8" onClick={toggleColor}>Let’s Google that</button></td>
-            <td><button className = "bingobutton" id = "9" onClick={toggleColor}>This will only take 5 minutes...</button></td>
-            <td><button className = "bingobutton" id = "10" onClick={toggleColor}>Restarting the server</button></td>
+            <td><button className="bingobutton" id="6" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="7" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="8" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="9" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="10" onClick={toggleColor}></button></td>
           </tr>
           <tr>
-            <td><button className = "bingobutton" id = "11" onClick={toggleColor}>This code worked last week!</button></td>
-            <td><button className = "bingobutton" id = "12" onClick={toggleColor}>Server down</button></td>
-            <td><button className = "center">Developer Challenges BINGO</button></td>
-            <td><button className = "bingobutton" id = "14" onClick={toggleColor}>The fix broke something else</button></td>
-            <td><button className = "bingobutton" id = "15" onClick={toggleColor}>Issue only happens on Tuesdays</button></td>
+            <td><button className="bingobutton" id="11" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="12" onClick={toggleColor}></button></td>
+            <td><button className="center">Developer Challenges BINGO</button></td>
+            <td><button className="bingobutton" id="14" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="15" onClick={toggleColor}></button></td>
           </tr>
           <tr>
-            <td><button className = "bingobutton" id = "16" onClick={toggleColor}>It stopped working!</button></td>
-            <td><button className = "bingobutton" id = "17" onClick={toggleColor}>It was fine when I tested it</button></td>
-            <td><button className = "bingobutton" id = "18" onClick={toggleColor}>Code freeze</button></td>
-            <td><button className = "bingobutton" id = "19" onClick={toggleColor}>It’s the JavaScript’s fault</button></td>
-            <td><button className = "bingobutton" id = "20" onClick={toggleColor}>Restart computer</button></td>
+            <td><button className="bingobutton" id="16" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="17" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="18" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="19" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="20" onClick={toggleColor}></button></td>
           </tr>
           <tr>
-            <td><button className = "bingobutton" id = "21" onClick={toggleColor}>I didn’t touch that part of the code</button></td>
-            <td><button className = "bingobutton" id = "22" onClick={toggleColor}>It's not a bug, it's a 'feature'</button></td>
-            <td><button className = "bingobutton" id = "23" onClick={toggleColor}>I think I need more coffee</button></td>
-            <td><button className = "bingobutton" id = "24" onClick={toggleColor}>The fix is simple... </button></td>
-            <td><button className = "bingobutton" id = "25" onClick={toggleColor}>Forgot to push changes</button></td>
+            <td><button className="bingobutton" id="21" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="22" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="23" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="24" onClick={toggleColor}></button></td>
+            <td><button className="bingobutton" id="25" onClick={toggleColor}></button></td>
           </tr>
         </tbody>
       </table>
