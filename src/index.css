@@ -50,7 +50,7 @@ button.active {
   .bingobutton, .center {
     width: 80px;
     height: 80px;
-    font-size: 10px; /* Adjust the font size on smaller screens */
+    font-size: 10px; 
   }
 }
 
@@ -58,6 +58,6 @@ button.active {
   .bingobutton, .center {
     width: 60px;
     height: 60px;
-    font-size: 8px; /* Further reduce the font size on very small screens */
+    font-size: 8px;
   }
 }
